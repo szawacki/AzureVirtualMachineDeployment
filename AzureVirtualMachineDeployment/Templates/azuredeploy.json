@@ -1,0 +1,158 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "VirtualComputerName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "VirtualComputerAdminUserName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "VirtualComputerAdminPassword": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "string",
+      "defaultValue": "VS-2015-Comm-AzureSDK-2.9-WS2012R2",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "2016-Nano-Docker-Test",
+        "2016-Nano-Server-Technical-Preview",
+        "2016-Technical-Preview-with-Containers",
+        "VS-2013-Community-VSU5-AzureSDK-2.7-Win8.1-N-x64",
+        "VS-2013-Community-VSU5-AzureSDK-2.7-WS2012R2",
+        "VS-2013-Community-VSU5-Cordova-CTP3.2-AzureSDK-2.7-WS2012R2",
+        "VS-2013-Comm-VSU5-AzureSDK-2.8-Win8.1-N-x64",
+        "VS-2013-Comm-VSU5-AzureSDK-2.8-WS2012R2",
+        "VS-2013-Comm-VSU5-Cordova-CTP3.2-AzureSDK-2.8-WS2012R2",
+        "VS-2015-Comm-AzureSDK-2.8-Cordova-Win8.1-N-x64",
+        "VS-2015-Comm-AzureSDK-2.8-WS2012R2",
+        "VS-2015-Comm-AzureSDK-2.8-WS2012R2.1",
+        "VS-2015-Comm-AzureSDK-2.8-WS2012R2.2",
+        "VS-2015-Comm-AzureSDK-2.9-W10T-Win10-N",
+        "VS-2015-Comm-AzureSDK-2.9-WS2012R2",
+        "VS-2015-Community-AzureSDK-2.7-Cordova-Win8.1-N-x64",
+        "VS-2015-Community-AzureSDK-2.7-W10T-Win10-N",
+        "VS-2015-Community-AzureSDK-2.7-WS2012R2",
+        "VS-2015-Comm-VSU1-AzureSDK-2.8-W10T-1511-N-x64",
+        "VS-2015-Comm-VSU1-AzureSDK-2.8-W10T-N-x64",
+        "VS-2015-Comm-VSU1-AzureSDK-2.8-WS2012R2",
+        "VS-2015-Comm-VSU1-AzureSDK-2.8-WS2012R2.1",
+        "VS-2015-Comm-VSU2-AzureSDK-29-W10T-N-x64",
+        "VS-2015-Comm-VSU2-AzureSDK-29-WS2012R2",
+        "Windows-Server-Technical-Preview"
+      ],
+      "metadata": {
+        "description": "Select custom image."
+      }
+    },
+    "StorageAccountName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "StorageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    },
+    "NumberOfAdditionalHarddisks": {
+      "type": "int",
+      "defaultValue": 0
+    },
+    "AdditionalHarddiskSize": {
+      "type": "int",
+      "defaultValue": 60,
+      "metadata": {
+        "description": "Disk size in GB."
+      }
+    },
+    "VirtualComputerSize": {
+      "type": "string",
+      "defaultValue": "Basic_A2",
+      "allowedValues": [
+        "A10",
+        "A11",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "Basic_A0",
+        "Basic_A1",
+        "Basic_A2",
+        "Basic_A3",
+        "Basic_A4",
+        "ExtraLarge",
+        "ExtraSmall",
+        "Large",
+        "Medium",
+        "Small",
+        "Standard_D1",
+        "Standard_D1_v2",
+        "Standard_D11",
+        "Standard_D11_v2",
+        "Standard_D12",
+        "Standard_D12_v2",
+        "Standard_D13",
+        "Standard_D13_v2",
+        "Standard_D14",
+        "Standard_D14_v2",
+        "Standard_D2",
+        "Standard_D2_v2",
+        "Standard_D3",
+        "Standard_D3_v2",
+        "Standard_D4",
+        "Standard_D4_v2",
+        "Standard_D5_v2",
+        "Standard_DS1",
+        "Standard_DS1_v2",
+        "Standard_DS11",
+        "Standard_DS11_v2",
+        "Standard_DS12",
+        "Standard_DS12_v2",
+        "Standard_DS13",
+        "Standard_DS13_v2",
+        "Standard_DS14",
+        "Standard_DS14_v2",
+        "Standard_DS2",
+        "Standard_DS2_v2",
+        "Standard_DS3",
+        "Standard_DS3_v2",
+        "Standard_DS4",
+        "Standard_DS4_v2",
+        "Standard_DS5_v2",
+        "Standard_G1",
+        "Standard_G2",
+        "Standard_G3",
+        "Standard_G4",
+        "Standard_G5",
+        "Standard_GS1",
+        "Standard_GS2",
+        "Standard_GS3",
+        "Standard_GS4",
+        "Standard_GS5"
+      ]
+    },
+    "VirtualNetworkName": {
+      "type": "string"
+    },
+    "VirtualNetworkPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16"
+    },
+    "VirtualNetworkSubnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/24"
+    }
+  }
+}
